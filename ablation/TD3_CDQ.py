@@ -120,7 +120,7 @@ class TD3(object):
             # Compute the target Q value
             target_Q1 = self.critic_target.Q1(next_state, next_action)
             # target_Q = torch.min(target_Q1, target_Q2)
-            target_Q = reward + not_done * self.discount * target_Q
+            target_Q = reward + not_done * self.discount * target_Q1
 
         # Get current Q estimates
         current_Q1 = self.critic.Q1(state, action)
